@@ -1,4 +1,4 @@
-package br.jcwoos;
+package br.jcwoos.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,11 +6,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import br.jcwoos.model.PlayerResult;
-import br.jcwoos.model.Roll;
-import br.jcwoos.model.WrongNumberOfFramesException;
-import br.jcwoos.model.WrongNumberOfRollsException;
 
 public class BowlingMatch {
 

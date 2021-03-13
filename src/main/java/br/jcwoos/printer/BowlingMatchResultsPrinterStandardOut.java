@@ -1,8 +1,9 @@
-package br.jcwoos;
+package br.jcwoos.printer;
 
 import java.io.PrintStream;
 
 import br.jcwoos.constants.Score;
+import br.jcwoos.model.BowlingMatch;
 import br.jcwoos.model.Frame;
 import br.jcwoos.model.PlayerResult;
 import br.jcwoos.model.Roll;

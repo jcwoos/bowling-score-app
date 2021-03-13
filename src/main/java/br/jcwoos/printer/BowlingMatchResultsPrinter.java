@@ -1,4 +1,6 @@
-package br.jcwoos;
+package br.jcwoos.printer;
+
+import br.jcwoos.model.BowlingMatch;
 
 public interface BowlingMatchResultsPrinter {
 

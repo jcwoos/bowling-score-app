@@ -1,9 +1,8 @@
-package br.jcwoos;
+package br.jcwoos.rollparser;
 
 import java.util.List;
 
 import br.jcwoos.model.Roll;
-import br.jcwoos.rollparser.RollParserException;
 
 public interface RollParser {
 

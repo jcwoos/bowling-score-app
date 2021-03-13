@@ -1,4 +1,4 @@
-package br.jcwoos;
+package br.jcwoos.rollparser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import br.jcwoos.constants.Score;
 import br.jcwoos.filereaders.FileReadExpection;
 import br.jcwoos.filereaders.FileReaderNio;
 import br.jcwoos.model.Roll;
-import br.jcwoos.rollparser.RollParserException;
 
 public class DefaultRollParser implements RollParser {
 

@@ -6,6 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import br.jcwoos.rollparser.DefaultRollParser;
 import br.jcwoos.rollparser.RollParserException;
 
 /**
