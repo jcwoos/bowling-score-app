@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileReaderNio implements FileReader {
 
@@ -18,10 +19,15 @@ public class FileReaderNio implements FileReader {
 
 	@Override
 	public List<String> readFile() throws FileReadExpection {
+		return readFile(fileName);
+	}
+
+	@Override
+	public List<String> readFile(String fileName) throws FileReadExpection {
 		if (!exists()) { throw new FileReadExpection("File " + fileName + " not found!"); }
 		Path path = Paths.get(fileName);
-		try {
-			List<String> content = Files.lines(path).collect(Collectors.toList());
+		try (Stream<String> stream = Files.lines(path)) {
+			List<String> content = stream.collect(Collectors.toList());
 			if (content.isEmpty()) { throw new FileReadExpection("Empty file!"); }
 			return content;
 		} catch (IOException e) {
@@ -34,4 +40,5 @@ public class FileReaderNio implements FileReader {
 		Path path = Paths.get(fileName);
 		return (path != null) && path.toFile().exists();
 	}
+
 }

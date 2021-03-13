@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class BowlingMatch {
@@ -16,10 +15,10 @@ public class BowlingMatch {
 
 		Map<String, List<Roll>> groupedRolls = matchRolls.stream().collect(Collectors.groupingBy(Roll::getPlayer));
 
-		Set<Entry<String, List<Roll>>> set = groupedRolls.entrySet();
-		for (Entry<String, List<Roll>> entry : set) {
+		for (Entry<String, List<Roll>> entry : groupedRolls.entrySet()) {
 			bowlingMatch.results.add(PlayerResult.build(entry.getKey(), entry.getValue()));
 		}
+
 		return bowlingMatch;
 	}
 

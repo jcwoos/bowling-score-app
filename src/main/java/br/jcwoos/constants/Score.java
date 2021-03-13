@@ -8,4 +8,6 @@ public class Score {
 
 	public static final String SPARE = "/";
 
+	private Score() {
+	}
 }

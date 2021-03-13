@@ -44,26 +44,29 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 	}
 
 	private void printFramePinfalls(Frame frame) {
-
+		if (frame.getFrameNumber() == 10) {
+			printLastFramePinfalls(frame);
+			return;
+		}
 		Roll r1 = frame.getRolls().get(0);
-
-		if ((frame.getFrameNumber() < 10) && (r1.getPinFalls() == 10)) {
+		if (r1.getPinFalls() == 10) {
 			print(TAB, Score.STRIKE);
 			return;
 		}
 
 		Roll r2 = frame.getRolls().get(1);
-		if (frame.getFrameNumber() < 10) {
-			print(r1.isFoul() ? Score.FOUL : r1.getPinFalls().toString());
+		print(r1.isFoul() ? Score.FOUL : r1.getPinFalls().toString());
 
-			if ((r1.getPinFalls() + r2.getPinFalls()) == 10) {
-				print(TAB, Score.SPARE);
-			} else {
-				print(TAB, r2.isFoul() ? Score.FOUL : r2.getPinFalls().toString());
-			}
-			return;
+		if ((r1.getPinFalls() + r2.getPinFalls()) == 10) {
+			print(TAB, Score.SPARE);
+		} else {
+			print(TAB, r2.isFoul() ? Score.FOUL : r2.getPinFalls().toString());
 		}
+	}
 
+	private void printLastFramePinfalls(Frame frame) {
+		Roll r1 = frame.getRolls().get(0);
+		Roll r2 = frame.getRolls().get(1);
 		if ((r1.getPinFalls() + r1.getNextTwoRollsPinFalls()) == 30) {
 			print(TAB, Score.STRIKE, TAB, Score.STRIKE, TAB, Score.STRIKE);
 			return;
@@ -78,6 +81,7 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 		} else {
 			print(TAB, r2.isFoul() ? Score.FOUL : r2.getPinFalls().toString());
 		}
+		if ((r1.getPinFalls() + r2.getPinFalls()) < 10) { return; }
 		Roll r3 = frame.getRolls().get(2);
 		if (r3.getPinFalls() == 10) {
 			print(TAB, Score.STRIKE);
