@@ -35,7 +35,7 @@ public class Frame {
 	public int getTotalPinsDown() {
 		int totalPinsDown = 0;
 		for (Roll roll : rolls) {
-			totalPinsDown += roll.getPinFalls();
+			totalPinsDown += roll.getPinfalls();
 		}
 		return totalPinsDown;
 	}
@@ -44,15 +44,15 @@ public class Frame {
 		Integer previousScore = previousFrame == null ? 0 : previousFrame.getScore();
 		Roll r1 = rolls.get(0);
 		if (frameNumber < 10) {
-			if (r1.getPinFalls() == 10) { return previousScore + r1.getPinFalls() + r1.getNextTwoRollsPinFalls(); }
+			if (r1.getPinfalls() == 10) { return previousScore + r1.getPinfalls() + r1.getNextTwoRollsPinFalls(); }
 			Roll r2 = rolls.get(1);
-			if ((r1.getPinFalls() + r2.getPinFalls()) == 10) {
-				return previousScore + r1.getPinFalls() + r2.getPinFalls() + r2.getNextRollPinFalls();
+			if ((r1.getPinfalls() + r2.getPinfalls()) == 10) {
+				return previousScore + r1.getPinfalls() + r2.getPinfalls() + r2.getNextRollPinFalls();
 			} else {
-				return previousScore + r1.getPinFalls() + r2.getPinFalls();
+				return previousScore + r1.getPinfalls() + r2.getPinfalls();
 			}
 		} else {
-			return previousScore + r1.getPinFalls() + r1.getNextTwoRollsPinFalls();
+			return previousScore + r1.getPinfalls() + r1.getNextTwoRollsPinFalls();
 		}
 	}
 

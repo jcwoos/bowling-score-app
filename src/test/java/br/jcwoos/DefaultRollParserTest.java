@@ -20,21 +20,21 @@ public class DefaultRollParserTest {
 	@Test
 	public void parsingRoll1() throws RollParserException {
 		// testing simple case
-		assertEquals(1, new DefaultRollParser().parseLine("Name\t1").getPinFalls().intValue());
+		assertEquals(1, new DefaultRollParser().parseLine("Name\t1").getPinfalls().intValue());
 	}
 
 	@Test
 	public void parsingRoll2() throws RollParserException {
 		// testing simple case
-		assertEquals(10, new DefaultRollParser().parseLine("Name\t10").getPinFalls().intValue());
+		assertEquals(10, new DefaultRollParser().parseLine("Name\t10").getPinfalls().intValue());
 	}
 
 	@Test
 	public void parsingRoll3() throws RollParserException {
 		// testing simple case
 		// must accept F and f on the file
-		assertEquals(0, new DefaultRollParser().parseLine("Name\tF").getPinFalls().intValue());
-		assertEquals(0, new DefaultRollParser().parseLine("Name\tf").getPinFalls().intValue());
+		assertEquals(0, new DefaultRollParser().parseLine("Name\tF").getPinfalls().intValue());
+		assertEquals(0, new DefaultRollParser().parseLine("Name\tf").getPinfalls().intValue());
 	}
 
 	@Test

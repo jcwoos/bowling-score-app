@@ -39,11 +39,11 @@ public class DefaultRollParser implements RollParser {
 		String[] splittedText = rollText.trim().split("\t");
 		if (splittedText.length != 2) { throw new RollParserException("Invalid line format " + rollText); }
 		String player = splittedText[0];
-		String pinFalls = splittedText[1];
-		boolean foul = Score.FOUL.equalsIgnoreCase(pinFalls);
-		int pinFalls2 = foul ? 0 : Integer.parseInt(pinFalls);
-		if ((pinFalls2 < 0) || (pinFalls2 > 10)) { throw new RollParserException("Invalid number of pins knocked down " + rollText); }
-		return new Roll(player, pinFalls2, foul);
+		String pinfallString = splittedText[1];
+		boolean foul = Score.FOUL.equalsIgnoreCase(pinfallString);
+		int pinfalls = foul ? 0 : Integer.parseInt(pinfallString);
+		if ((pinfalls < 0) || (pinfalls > 10)) { throw new RollParserException("Invalid number of pins knocked down " + rollText); }
+		return new Roll(player, pinfalls, foul);
 	}
 
 }
