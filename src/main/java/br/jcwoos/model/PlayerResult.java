@@ -3,9 +3,6 @@ package br.jcwoos.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.jcwoos.exceptions.WrongNumberOfFramesException;
-import br.jcwoos.exceptions.WrongNumberOfRollsException;
-
 public class PlayerResult {
 
 	private String playerName;

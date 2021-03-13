@@ -1,17 +1,12 @@
 package br.jcwoos;
 
 import br.jcwoos.filereaders.FileReaderNio;
-import br.jcwoos.model.BowlingMatch;
-import br.jcwoos.printer.BowlingMatchResultsPrinter;
-import br.jcwoos.printer.BowlingMatchResultsPrinterStandardOut;
-import br.jcwoos.rollparser.DefaultRollParser;
-import br.jcwoos.rollparser.RollParser;
 
 public class App {
 
 	protected static final String[] testCases = {
-	        "all_fouls.txt",
-	        "all_zeros.txt",
+	        //	        "all_fouls.txt",
+	        //	        "all_zeros.txt",
 	        "perfect_score.txt",
 	        "sample1.txt"
 	};
