@@ -81,7 +81,9 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 		} else {
 			print(TAB, r2.isFoul() ? Score.FOUL : r2.getPinFalls().toString());
 		}
+
 		if ((r1.getPinFalls() + r2.getPinFalls()) < 10) { return; }
+
 		Roll r3 = frame.getRolls().get(2);
 		if (r3.getPinFalls() == 10) {
 			print(TAB, Score.STRIKE);

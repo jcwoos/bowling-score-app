@@ -16,8 +16,8 @@ public class Frame {
 		rolls = new ArrayList<>();
 	}
 
-	public void addRoll(Roll delivery) {
-		rolls.add(delivery);
+	public void addRoll(Roll roll) {
+		rolls.add(roll);
 	}
 
 	public List<Roll> getRolls() {
@@ -34,8 +34,8 @@ public class Frame {
 
 	public int getTotalPinsDown() {
 		int totalPinsDown = 0;
-		for (Roll delivery : rolls) {
-			totalPinsDown += delivery.getPinFalls();
+		for (Roll roll : rolls) {
+			totalPinsDown += roll.getPinFalls();
 		}
 		return totalPinsDown;
 	}

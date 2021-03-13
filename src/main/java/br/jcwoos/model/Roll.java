@@ -32,8 +32,8 @@ public class Roll {
 		return nextRoll;
 	}
 
-	public void setNextRoll(Roll delivery) {
-		nextRoll = delivery;
+	public void setNextRoll(Roll nextRoll) {
+		this.nextRoll = nextRoll;
 	}
 
 	public Integer getNextTwoRollsPinFalls() {
