@@ -19,7 +19,7 @@ public class DefaultRollParser implements RollParser {
 		lines = fileReaderNio.readFile();
 	}
 
-	public DefaultRollParser(List<String> lines) throws FileReadExpection {
+	public DefaultRollParser(List<String> lines) {
 		this.lines = lines;
 	}
 
@@ -43,8 +43,7 @@ public class DefaultRollParser implements RollParser {
 		boolean foul = Score.FOUL.equalsIgnoreCase(pinFalls);
 		int pinFalls2 = foul ? 0 : Integer.parseInt(pinFalls);
 		if ((pinFalls2 < 0) || (pinFalls2 > 10)) { throw new RollParserException("Invalid number of pins knocked down " + rollText); }
-		Roll roll = new Roll(player, pinFalls2, foul);
-		return roll;
+		return new Roll(player, pinFalls2, foul);
 	}
 
 }
