@@ -1,8 +1,6 @@
 package br.jcwoos;
 
-public class BowlingMatchResultsPrinter {
+public interface BowlingMatchResultsPrinter {
 
-	public void printResults(BowlingMatch match) {
-	}
-
+	void printResults(BowlingMatch match);
 }

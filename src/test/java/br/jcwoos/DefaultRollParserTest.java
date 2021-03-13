@@ -1,17 +1,20 @@
 package br.jcwoos;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
-import br.jcwoos.rollparser.DefaultRollParser;
 import br.jcwoos.rollparser.RollParserException;
 
 /**
  * Unit test for simple App.
  */
 public class DefaultRollParserTest {
+
+	@Rule
+	public ExpectedException exceptionRule = ExpectedException.none();
 
 	@Test
 	public void parsingRoll1() throws RollParserException {
@@ -34,110 +37,82 @@ public class DefaultRollParserTest {
 	}
 
 	@Test
-	public void parsingRoll4() {
+	public void parsingRoll4() throws RollParserException {
 		// DefaultRollParser don't accept space as separator
-		try {
-			new DefaultRollParser().parseLine("Name 1");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+
+		new DefaultRollParser().parseLine("Name 1");
+
 	}
 
 	@Test
-	public void parsingRoll5() {
+	public void parsingRoll5() throws RollParserException {
 		// DefaultRollParser don't accept lines without a second value
-		try {
-			new DefaultRollParser().parseLine("Name1");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine("Name1");
+
 	}
 
 	@Test
-	public void parsingRoll6() {
+	public void parsingRoll6() throws RollParserException {
 		// DefaultRollParser don't accept empty lines
-		try {
-			new DefaultRollParser().parseLine("");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine("");
+
 	}
 
 	@Test
-	public void parsingRoll7() {
+	public void parsingRoll7() throws RollParserException {
 		// DefaultRollParser don't accept null to parse
-		try {
-			new DefaultRollParser().parseLine(null);
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine(null);
+
 	}
 
 	@Test
-	public void parsingRoll8() {
+	public void parsingRoll8() throws RollParserException {
 		// DefaultRollParser don't accept lines with more than one tab as separator
-		try {
-			new DefaultRollParser().parseLine("Name\t\t1");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine("Name\t\t1");
 	}
 
 	@Test
 	public void parsingRoll9() throws RollParserException {
 		// DefaultRollParser don't accept values bellow zero
-		try {
-			new DefaultRollParser().parseLine("Name\t-1");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine("Name\t-1");
 	}
 
 	@Test
 	public void parsingRoll10() throws RollParserException {
 		// DefaultRollParser don't accept values over 10
-		try {
-			new DefaultRollParser().parseLine("Name\t11");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine("Name\t11");
+
 	}
 
 	@Test
 	public void parsingRoll11() throws RollParserException {
 		// DefaultRollParser don't accept lines with more than two values
-		try {
-			new DefaultRollParser().parseLine("Name\t1\t2");
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLine("Name\t1\t2");
+
 	}
 
 	@Test
 	public void parsingRoll12() throws RollParserException {
 		// DefaultRollParser throw an error if it has nothing to parse
-		try {
-			new DefaultRollParser().parseLines();
-		} catch (RollParserException e) {
-			assertTrue(true);
-		} catch (Exception e) {
-			assertTrue(false);
-		}
+
+		exceptionRule.expect(RollParserException.class);
+		new DefaultRollParser().parseLines();
+
 	}
 }
