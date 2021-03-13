@@ -1,6 +1,97 @@
 package br.jcwoos;
 
+import java.io.PrintStream;
 
-public class BowlingMatchResultsPrinterStandardOut extends BowlingMatchResultsPrinter {
+import br.jcwoos.constants.Score;
+import br.jcwoos.model.Frame;
+import br.jcwoos.model.PlayerResult;
+import br.jcwoos.model.Roll;
+
+public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResultsPrinter {
+
+	private static final String TAB = "\t";
+
+	private PrintStream output = System.out;
+
+	@Override
+	public void printResults(BowlingMatch match) {
+
+		println("Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10");
+		for (PlayerResult result : match.getPlayerResults()) {
+			println(result.getPlayerName());
+			print("Pinfalls");
+			for (Frame frame : result.getFrames()) {
+				print(TAB);
+				printFramePinfalls(frame);
+			}
+			print("\n");
+			print("Score");
+			for (Frame frame : result.getFrames()) {
+				print(TAB);
+				printFrameScore(frame);
+			}
+			print("\n");
+		}
+
+	}
+
+	private void printFrameScore(Frame frame) {
+	}
+
+	private void printFramePinfalls(Frame frame) {
+
+		if (frame.getFrameNumber() < 10) {
+			Roll r1 = frame.getRolls().get(0);
+
+			if (r1.getPinFalls() == 10) {
+				print(TAB + Score.STRIKE);
+				return;
+			}
+			Roll r2 = frame.getRolls().get(1);
+			print(r1.isFoul() ? Score.FOUL : r1.getPinFalls());
+			if ((r1.getPinFalls() + r2.getPinFalls()) == 10) {
+				print(TAB + Score.SPARE);
+			} else {
+				print(TAB);
+				print(r2.isFoul() ? Score.FOUL : r2.getPinFalls());
+			}
+		} else {
+			Roll r1 = frame.getRolls().get(0);
+			Roll r2 = frame.getRolls().get(1);
+			if ((r1.getPinFalls() + r1.getNextTwoRollsPinFalls()) == 30) {
+				print(TAB + Score.STRIKE);
+				print(TAB + Score.STRIKE);
+				print(TAB + Score.STRIKE);
+				return;
+			}
+			if (r1.getPinFalls() == 10) {
+				print(TAB + Score.STRIKE);
+			} else {
+				print(TAB);
+				print(r1.isFoul() ? Score.FOUL : r1.getPinFalls());
+			}
+			if ((r2.getPinFalls() > 0) && ((r1.getPinFalls() + r2.getPinFalls()) == 10)) {
+				print(TAB + Score.SPARE);
+			} else {
+				print(TAB);
+				print(r2.isFoul() ? Score.FOUL : r2.getPinFalls());
+			}
+			Roll r3 = frame.getRolls().get(2);
+			if (r3.getPinFalls() == 10) {
+				print(TAB + Score.STRIKE);
+			} else {
+				print(TAB);
+				print(r3.isFoul() ? Score.FOUL : r3.getPinFalls());
+			}
+		}
+	}
+
+	private void println(Object something) {
+		output.println(something);
+	}
+
+	private void print(Object something) {
+		output.print(something);
+	}
 
 }
