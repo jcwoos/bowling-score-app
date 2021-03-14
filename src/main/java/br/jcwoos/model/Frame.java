@@ -33,26 +33,19 @@ public class Frame {
 	}
 
 	public int getTotalPinsDown() {
-		int totalPinsDown = 0;
-		for (Roll roll : rolls) {
-			totalPinsDown += roll.getPinfalls();
-		}
-		return totalPinsDown;
+		return rolls.stream().map(Roll::getPinfalls).reduce(0, Integer::sum);
 	}
 
 	public Integer getScore() {
 		Integer previousScore = previousFrame == null ? 0 : previousFrame.getScore();
 		Roll r1 = rolls.get(0);
-		if (frameNumber < 10) {
-			if (r1.getPinfalls() == 10) { return previousScore + r1.getPinfalls() + r1.getNextTwoRollsPinFalls(); }
-			Roll r2 = rolls.get(1);
-			if ((r1.getPinfalls() + r2.getPinfalls()) == 10) {
-				return previousScore + r1.getPinfalls() + r2.getPinfalls() + r2.getNextRollPinFalls();
-			} else {
-				return previousScore + r1.getPinfalls() + r2.getPinfalls();
-			}
+		if (frameNumber == 10) { return previousScore + r1.getPinfalls() + r1.getNextTwoRollsPinFalls(); }
+		if (r1.getPinfalls() == 10) { return previousScore + r1.getPinfalls() + r1.getNextTwoRollsPinFalls(); }
+		Roll r2 = rolls.get(1);
+		if ((r1.getPinfalls() + r2.getPinfalls()) == 10) {
+			return previousScore + r1.getPinfalls() + r2.getPinfalls() + r2.getNextRollPinFalls();
 		} else {
-			return previousScore + r1.getPinfalls() + r1.getNextTwoRollsPinFalls();
+			return previousScore + r1.getPinfalls() + r2.getPinfalls();
 		}
 	}
 
