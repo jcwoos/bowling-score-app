@@ -31,8 +31,22 @@ public class PlayerResult {
 
 		private List<Frame> frames;
 
-		public Builder(String playerName, List<Roll> rolls) throws InvalidScoreException, WrongNumberOfRollsException {
+		List<Roll> rolls;
+
+		public Builder(String playerName, List<Roll> rolls) {
 			this.playerName = playerName;
+			this.rolls = rolls;
+		}
+
+		private Frame startNewFrame(Frame currentFrame) {
+			Frame newOne = new Frame(frames.size() + 1);
+			frames.add(newOne);
+			newOne.setPreviousFrame(currentFrame);
+			currentFrame = newOne;
+			return currentFrame;
+		}
+
+		public PlayerResult build() throws InvalidScoreException, WrongNumberOfRollsException {
 			frames = new ArrayList<>();
 			Frame currentFrame = new Frame(1);
 			frames.add(currentFrame);
@@ -57,17 +71,6 @@ public class PlayerResult {
 				}
 				lastRoll = roll;
 			}
-		}
-
-		private Frame startNewFrame(Frame currentFrame) {
-			Frame newOne = new Frame(frames.size() + 1);
-			frames.add(newOne);
-			newOne.setPreviousFrame(currentFrame);
-			currentFrame = newOne;
-			return currentFrame;
-		}
-
-		public PlayerResult build() {
 			return new PlayerResult(this);
 		}
 	}
