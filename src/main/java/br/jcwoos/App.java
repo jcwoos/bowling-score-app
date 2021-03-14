@@ -1,6 +1,7 @@
 package br.jcwoos;
 
 import br.jcwoos.filereaders.FileReaderNio;
+import br.jcwoos.filereaders.exception.BowlingException;
 import br.jcwoos.model.BowlingMatch;
 import br.jcwoos.printer.BowlingMatchResultsPrinter;
 import br.jcwoos.printer.BowlingMatchResultsPrinterStandardOut;
@@ -35,13 +36,16 @@ public class App {
 				BowlingMatchResultsPrinter printer = new BowlingMatchResultsPrinterStandardOut();
 				printer.printResults(match);
 
-				if (fileNames.length > 1) {
-					System.out.println();
-					System.out.println();
-				}
 			} catch (Exception e) {
-				System.out.println("error " + fileName);
-				e.printStackTrace();
+				System.out.println("Error parsing the file: " + fileName);
+				System.out.println(e.getMessage());
+				if (!(e instanceof BowlingException)) {
+					e.printStackTrace();
+				}
+			}
+			if (fileNames.length > 1) {
+				System.out.println();
+				System.out.println();
 			}
 		}
 	}
