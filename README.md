@@ -9,7 +9,7 @@ Use the `mvn package` command to compile and generate the jar file.
 * Maven 3
 
 # Tests
-Use the `mvn tests` command to run the tests only.
+Use the `mvn test` command to run the tests only.
 
 # Usage
 After compile and generate the jar file, use the `java -jar target/bowling-score.jar [file_path]` to run the program with a specific file.
