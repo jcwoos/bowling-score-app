@@ -23,28 +23,28 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 	@Override
 	public void printResults(BowlingMatch match) {
 		print("Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10\n");
-		for (PlayerResult result : match.getPlayerResults()) {
+		match.getPlayerResults().forEach(result -> {
 			print(result.getPlayerName(), NEW_LINE);
 			printPinFallLine(result);
 			printScoreLine(result);
-		}
+		});
 	}
 
 	private void printScoreLine(PlayerResult result) {
 		print("Score");
-		for (Frame frame : result.getFrames()) {
+		result.getFrames().forEach(frame -> {
 			print(TAB);
 			printFrameScore(frame);
-		}
+		});
 		print(NEW_LINE);
 	}
 
 	private void printPinFallLine(PlayerResult result) {
 		print("Pinfalls");
-		for (Frame frame : result.getFrames()) {
+		result.getFrames().forEach(frame -> {
 			print(TAB);
 			printFramePinfalls(frame);
-		}
+		});
 		print(NEW_LINE);
 	}
 

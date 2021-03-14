@@ -2,11 +2,11 @@ package br.jcwoos;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-import com.sun.tools.javac.util.List;
 
 import br.jcwoos.exception.BowlingException;
 import br.jcwoos.rollparser.DefaultRollParser;
