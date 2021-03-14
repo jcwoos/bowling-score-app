@@ -16,12 +16,16 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 
 	private PrintStream output = System.out;
 
+	public void setOutput(PrintStream output) {
+		this.output = output;
+	}
+
 	@Override
 	public void printResults(BowlingMatch match) {
 
-		println("Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10");
+		print("Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10\n");
 		for (PlayerResult result : match.getPlayerResults()) {
-			println(result.getPlayerName());
+			print(result.getPlayerName(), NEW_LINE);
 			printPinFallLine(result);
 			printScoreLine(result);
 		}
@@ -97,12 +101,6 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 			print(TAB, Score.STRIKE);
 		} else {
 			print(TAB, r3.isFoul() ? Score.FOUL : r3.getPinfalls().toString());
-		}
-	}
-
-	private void println(String... something) {
-		for (String string : something) {
-			output.println(string);
 		}
 	}
 
