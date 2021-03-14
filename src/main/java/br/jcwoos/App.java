@@ -10,10 +10,12 @@ import br.jcwoos.rollparser.RollParser;
 public class App {
 
 	protected static final String[] testCases = {
-	        //	        "all_fouls.txt",
-	        //	        "all_zeros.txt",
-	        "perfect_score.txt",
-	        "sample1.txt"
+	        "sample_cases/all_fouls.txt",
+	        "sample_cases/all_zeros.txt",
+	        "sample_cases/empty.txt",
+	        "sample_cases/perfect_score.txt",
+	        "sample_cases/sample1.txt",
+	        "sample_cases/too_much_frames.txt"
 	};
 
 	public static void main(String[] fileNames) {

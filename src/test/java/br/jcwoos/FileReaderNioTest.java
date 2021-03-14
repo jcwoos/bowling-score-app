@@ -23,6 +23,6 @@ public class FileReaderNioTest {
 	public void shouldThrowEmptyFileException() throws FileReadExpection {
 		exceptionRule.expect(FileReadExpection.class);
 		exceptionRule.expectMessage("Empty file!");
-		new FileReaderNio("empty.txt").readFile();
+		new FileReaderNio("sample_cases/empty.txt").readFile();
 	}
 }

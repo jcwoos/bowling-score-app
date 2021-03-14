@@ -22,7 +22,7 @@ public class BowlingMatchResultsPrinterStandardOutTest {
 
 	@Test
 	public void shoulHaveThisOutputForAPerfectScore() throws FileReadExpection, WrongNumberOfRollsException, RollParserException, UnsupportedEncodingException {
-		RollParser rollParser = new DefaultRollParser(new FileReaderNio("perfect_score.txt"));
+		RollParser rollParser = new DefaultRollParser(new FileReaderNio("sample_cases/perfect_score.txt"));
 		String expected = "Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10\n" +
 		        "Carl\n" +
 		        "Pinfalls\t\tX\t\tX\t\tX\t\tX\t\tX\t\tX\t\tX\t\tX\t\tX\t\tX\tX\tX\n" +
@@ -47,7 +47,7 @@ public class BowlingMatchResultsPrinterStandardOutTest {
 
 	@Test
 	public void shoulHaveThisOutputForAAllZeros() throws FileReadExpection, WrongNumberOfRollsException, RollParserException, UnsupportedEncodingException {
-		RollParser rollParser = new DefaultRollParser(new FileReaderNio("all_zeros.txt"));
+		RollParser rollParser = new DefaultRollParser(new FileReaderNio("sample_cases/all_zeros.txt"));
 		String expected = "Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10\n" +
 		        "Newbie\n" +
 		        "Pinfalls\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t\t0\t0\n" +
@@ -73,7 +73,7 @@ public class BowlingMatchResultsPrinterStandardOutTest {
 
 	@Test
 	public void shoulHaveThisOutputForTheSample() throws FileReadExpection, WrongNumberOfRollsException, RollParserException, UnsupportedEncodingException {
-		RollParser rollParser = new DefaultRollParser(new FileReaderNio("sample1.txt"));
+		RollParser rollParser = new DefaultRollParser(new FileReaderNio("sample_cases/sample1.txt"));
 		String expected = "Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10\n" +
 		        "John\n" +
 		        "Pinfalls\t3\t/\t6\t3\t\tX\t8\t1\t\tX\t\tX\t9\t0\t7\t/\t4\t4\t\tX\t9\t0\n" +
