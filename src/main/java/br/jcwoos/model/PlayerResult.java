@@ -9,8 +9,6 @@ public class PlayerResult {
 
 	private List<Frame> frames = new ArrayList<>();
 
-	private Frame actualFrame;
-
 	public PlayerResult(String playerName) {
 		this.playerName = playerName;
 	}
