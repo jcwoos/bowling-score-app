@@ -6,23 +6,36 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import br.jcwoos.exception.InvalidScoreException;
+import br.jcwoos.exception.WrongNumberOfRollsException;
+
 public class BowlingMatch {
 
-	private List<PlayerResult> results = new ArrayList<>();
+	private List<PlayerResult> results;
 
-	public static BowlingMatch build(List<Roll> matchRolls) throws WrongNumberOfRollsException, InvalidScoreException {
-		BowlingMatch bowlingMatch = new BowlingMatch();
-
-		Map<String, List<Roll>> groupedRolls = matchRolls.stream().collect(Collectors.groupingBy(Roll::getPlayer));
-
-		for (Entry<String, List<Roll>> entry : groupedRolls.entrySet()) {
-			bowlingMatch.results.add(PlayerResult.build(entry.getKey(), entry.getValue()));
-		}
-
-		return bowlingMatch;
+	private BowlingMatch(Builder builder) {
+		results = builder.results;
 	}
 
 	public List<PlayerResult> getPlayerResults() {
 		return results;
+	}
+
+	public static class Builder {
+
+		private List<PlayerResult> results;
+
+		public Builder(List<Roll> matchRolls) throws WrongNumberOfRollsException, InvalidScoreException {
+			results = new ArrayList<>();
+			Map<String, List<Roll>> groupedRolls = matchRolls.stream().collect(Collectors.groupingBy(Roll::getPlayer));
+
+			for (Entry<String, List<Roll>> entry : groupedRolls.entrySet()) {
+				results.add(new PlayerResult.Builder(entry.getKey(), entry.getValue()).build());
+			}
+		}
+
+		public BowlingMatch build() {
+			return new BowlingMatch(this);
+		}
 	}
 }

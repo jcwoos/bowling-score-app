@@ -26,7 +26,7 @@ public class BowlingMatchBuildTest {
 			rolls.add(new Roll("Player", 10, false));
 		}
 		exceptionRule.expect(WrongNumberOfRollsException.class);
-		BowlingMatch.build(rolls);
+		new BowlingMatch.Builder(rolls).build();
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class BowlingMatchBuildTest {
 			rolls.add(new Roll("Player", 6, false));
 		}
 		exceptionRule.expect(InvalidScoreException.class);
-		BowlingMatch.build(rolls);
+		new BowlingMatch.Builder(rolls).build();
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class BowlingMatchBuildTest {
 		rolls.add(new Roll("Player", 6, false));
 		rolls.add(new Roll("Player", 6, false));
 		exceptionRule.expect(InvalidScoreException.class);
-		BowlingMatch.build(rolls);
+		new BowlingMatch.Builder(rolls).build();
 	}
 
 }

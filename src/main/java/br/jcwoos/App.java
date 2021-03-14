@@ -31,7 +31,7 @@ public class App {
 				}
 				RollParser rollParser = new DefaultRollParser(new FileReaderNio(fileName));
 
-				BowlingMatch match = BowlingMatch.build(rollParser.parseLines());
+				BowlingMatch match = new BowlingMatch.Builder(rollParser.parseLines()).build();
 
 				BowlingMatchResultsPrinter printer = new BowlingMatchResultsPrinterStandardOut();
 				printer.printResults(match);
