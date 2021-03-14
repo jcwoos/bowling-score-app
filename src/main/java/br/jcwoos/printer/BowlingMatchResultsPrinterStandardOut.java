@@ -22,14 +22,12 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 
 	@Override
 	public void printResults(BowlingMatch match) {
-
 		print("Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10\n");
 		for (PlayerResult result : match.getPlayerResults()) {
 			print(result.getPlayerName(), NEW_LINE);
 			printPinFallLine(result);
 			printScoreLine(result);
 		}
-
 	}
 
 	private void printScoreLine(PlayerResult result) {
@@ -47,7 +45,6 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 			print(TAB);
 			printFramePinfalls(frame);
 		}
-
 		print(NEW_LINE);
 	}
 
@@ -60,6 +57,7 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 			printLastFramePinfalls(frame);
 			return;
 		}
+
 		Roll r1 = frame.getRolls().get(0);
 		if (r1.getPinfalls() == 10) {
 			print(TAB, Score.STRIKE);

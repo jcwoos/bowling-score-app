@@ -6,6 +6,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.sun.tools.javac.util.List;
+
 import br.jcwoos.rollparser.DefaultRollParser;
 import br.jcwoos.rollparser.RollParserException;
 
@@ -38,9 +40,17 @@ public class DefaultRollParserTest {
 	}
 
 	@Test
-	public void parsingRoll12() throws RollParserException {
+	public void parsingRoll4() throws RollParserException {
 		// DefaultRollParser throw an error if it has nothing to parse
 		exceptionRule.expect(RollParserException.class);
+		exceptionRule.expectMessage("No content to be parsed");
 		new DefaultRollParser().parseLines();
 	}
+
+	@Test
+	public void parsingRoll5() throws RollParserException {
+		// testing simple case
+		assertEquals(1, new DefaultRollParser(List.of("Name\t10")).parseLines().size());
+	}
+
 }

@@ -23,10 +23,6 @@ public class PlayerResult {
 		return List.copyOf(frames);
 	}
 
-	public Frame getActualFrame() {
-		return actualFrame;
-	}
-
 	public static PlayerResult build(String playerName, List<Roll> rolls) throws WrongNumberOfRollsException {
 		List<Frame> frames = new ArrayList<>();
 		Frame actualFrame = new Frame(1);
