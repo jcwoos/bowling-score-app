@@ -10,7 +10,7 @@ public class BowlingMatch {
 
 	private List<PlayerResult> results = new ArrayList<>();
 
-	public static BowlingMatch build(List<Roll> matchRolls) throws WrongNumberOfRollsException {
+	public static BowlingMatch build(List<Roll> matchRolls) throws WrongNumberOfRollsException, InvalidScoreException {
 		BowlingMatch bowlingMatch = new BowlingMatch();
 
 		Map<String, List<Roll>> groupedRolls = matchRolls.stream().collect(Collectors.groupingBy(Roll::getPlayer));

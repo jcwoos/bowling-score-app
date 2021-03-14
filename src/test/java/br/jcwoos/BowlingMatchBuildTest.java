@@ -7,7 +7,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import br.jcwoos.filereaders.exception.BowlingException;
 import br.jcwoos.model.BowlingMatch;
+import br.jcwoos.model.InvalidScoreException;
 import br.jcwoos.model.Roll;
 import br.jcwoos.model.WrongNumberOfRollsException;
 
@@ -17,13 +19,37 @@ public class BowlingMatchBuildTest {
 	public ExpectedException exceptionRule = ExpectedException.none();
 
 	@Test
-	public void shouldNotAllowMoreThan12Rolls() throws WrongNumberOfRollsException {
+	public void shouldNotAllowMoreThan12Rolls() throws BowlingException {
 
 		List<Roll> rolls = new ArrayList<>();
 		for (int i = 0; i < 13; i++) {
 			rolls.add(new Roll("Player", 10, false));
 		}
 		exceptionRule.expect(WrongNumberOfRollsException.class);
+		BowlingMatch.build(rolls);
+	}
+
+	@Test
+	public void shouldNotAllowMoreThan10PointsInAFrame() throws BowlingException {
+
+		List<Roll> rolls = new ArrayList<>();
+		for (int i = 0; i < 13; i++) {
+			rolls.add(new Roll("Player", 6, false));
+		}
+		exceptionRule.expect(InvalidScoreException.class);
+		BowlingMatch.build(rolls);
+	}
+
+	@Test
+	public void shouldNotAllowMoreThan10PointsInTheLastFrame() throws BowlingException {
+
+		List<Roll> rolls = new ArrayList<>();
+		for (int i = 0; i < 9; i++) {
+			rolls.add(new Roll("Player", 10, false));
+		}
+		rolls.add(new Roll("Player", 6, false));
+		rolls.add(new Roll("Player", 6, false));
+		exceptionRule.expect(InvalidScoreException.class);
 		BowlingMatch.build(rolls);
 	}
 
