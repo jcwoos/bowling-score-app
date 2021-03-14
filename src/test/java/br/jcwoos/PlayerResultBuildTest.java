@@ -27,7 +27,7 @@ public class PlayerResultBuildTest {
 			rolls.add(new Roll("Player", 10, false));
 		}
 		exceptionRule.expect(WrongNumberOfRollsException.class);
-		PlayerResult.build("Player", rolls);
+		new PlayerResult.Builder("Player", rolls).build();
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class PlayerResultBuildTest {
 			rolls.add(new Roll("Player", 10, false));
 		}
 		try {
-			PlayerResult.build("Player", rolls);
+			new PlayerResult.Builder("Player", rolls).build();
 		} catch (BowlingException e) {
 			fail();
 		}
@@ -51,7 +51,7 @@ public class PlayerResultBuildTest {
 			rolls.add(new Roll("Player", 1, false));
 		}
 		exceptionRule.expect(WrongNumberOfRollsException.class);
-		PlayerResult.build("Player", rolls);
+		new PlayerResult.Builder("Player", rolls).build();
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class PlayerResultBuildTest {
 			rolls.add(new Roll("Player", 1, false));
 		}
 		try {
-			PlayerResult.build("Player", rolls);
+			new PlayerResult.Builder("Player", rolls).build();
 		} catch (BowlingException e) {
 			fail();
 		}
