@@ -8,10 +8,10 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import br.jcwoos.exception.BowlingException;
+import br.jcwoos.exception.InvalidScoreException;
+import br.jcwoos.exception.WrongNumberOfRollsException;
 import br.jcwoos.model.BowlingMatch;
-import br.jcwoos.model.InvalidScoreException;
 import br.jcwoos.model.Roll;
-import br.jcwoos.model.WrongNumberOfRollsException;
 
 public class BowlingMatchBuildTest {
 

@@ -1,6 +1,4 @@
-package br.jcwoos.model;
-
-import br.jcwoos.exception.BowlingException;
+package br.jcwoos.exception;
 
 /**
  * Custom exceptions allow us to be more specific when an error occours

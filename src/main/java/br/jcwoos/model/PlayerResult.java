@@ -3,6 +3,8 @@ package br.jcwoos.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.jcwoos.exception.InvalidScoreException;
+import br.jcwoos.exception.WrongNumberOfRollsException;
 public class PlayerResult {
 
 	private String playerName;
