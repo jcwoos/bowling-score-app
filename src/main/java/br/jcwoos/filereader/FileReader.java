@@ -1,4 +1,4 @@
-package br.jcwoos.filereaders;
+package br.jcwoos.filereader;
 
 import java.util.List;
 
