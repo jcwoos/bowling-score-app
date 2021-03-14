@@ -78,13 +78,13 @@ public class BowlingMatchResultsPrinterStandardOut implements BowlingMatchResult
 		Roll r1 = frame.getRolls().get(0);
 		Roll r2 = frame.getRolls().get(1);
 		if ((r1.getPinfalls() + r1.getNextTwoRollsPinFalls()) == 30) {
-			print(TAB, Score.STRIKE, TAB, Score.STRIKE, TAB, Score.STRIKE);
+			print(Score.STRIKE, TAB, Score.STRIKE, TAB, Score.STRIKE);
 			return;
 		}
 		if (r1.getPinfalls() == 10) {
-			print(TAB, Score.STRIKE);
+			print(Score.STRIKE);
 		} else {
-			print(TAB, r1.isFoul() ? Score.FOUL : r1.getPinfalls().toString());
+			print(r1.isFoul() ? Score.FOUL : r1.getPinfalls().toString());
 		}
 		if ((r2.getPinfalls() > 0) && ((r1.getPinfalls() + r2.getPinfalls()) == 10)) {
 			print(TAB, Score.SPARE);
