@@ -9,6 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import br.jcwoos.filereaders.exception.BowlingException;
 import br.jcwoos.model.PlayerResult;
 import br.jcwoos.model.Roll;
 import br.jcwoos.model.WrongNumberOfRollsException;
@@ -19,7 +20,7 @@ public class PlayerResultBuildTest {
 	public ExpectedException exceptionRule = ExpectedException.none();
 
 	@Test
-	public void shouldNotAllowMoreThan12Rolls() throws WrongNumberOfRollsException {
+	public void shouldNotAllowMoreThan12Rolls() throws BowlingException {
 
 		List<Roll> rolls = new ArrayList<>();
 		for (int i = 0; i < 23; i++) {
@@ -38,13 +39,13 @@ public class PlayerResultBuildTest {
 		}
 		try {
 			PlayerResult.build("Player", rolls);
-		} catch (WrongNumberOfRollsException e) {
+		} catch (BowlingException e) {
 			fail();
 		}
 	}
 
 	@Test
-	public void shouldNotAllowMoreThan21Rolls() throws WrongNumberOfRollsException {
+	public void shouldNotAllowMoreThan21Rolls() throws BowlingException {
 		List<Roll> rolls = new ArrayList<>();
 		for (int i = 0; i < 21; i++) {
 			rolls.add(new Roll("Player", 1, false));
@@ -62,7 +63,7 @@ public class PlayerResultBuildTest {
 		}
 		try {
 			PlayerResult.build("Player", rolls);
-		} catch (WrongNumberOfRollsException e) {
+		} catch (BowlingException e) {
 			fail();
 		}
 	}

@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import br.jcwoos.filereaders.exception.BowlingException;
 import br.jcwoos.rollparser.DefaultRollParser;
 import br.jcwoos.rollparser.RollParserException;
 
@@ -34,7 +35,7 @@ public class DefaultRollParserParametrizedTest {
 	}
 
 	@Test
-	public void parsingInvalidData() throws RollParserException {
+	public void parsingInvalidData() throws BowlingException {
 		// DefaultRollParser don't accept space as separator
 
 		exceptionRule.expect(RollParserException.class);

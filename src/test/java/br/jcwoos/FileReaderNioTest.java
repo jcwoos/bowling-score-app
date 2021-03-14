@@ -6,6 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import br.jcwoos.filereaders.FileReadExpection;
 import br.jcwoos.filereaders.FileReaderNio;
+import br.jcwoos.filereaders.exception.BowlingException;
 
 public class FileReaderNioTest {
 
@@ -13,14 +14,14 @@ public class FileReaderNioTest {
 	public ExpectedException exceptionRule = ExpectedException.none();
 
 	@Test
-	public void shouldThrowFileNotFoundException() throws FileReadExpection {
+	public void shouldThrowFileNotFoundException() throws BowlingException {
 		exceptionRule.expect(FileReadExpection.class);
 		exceptionRule.expectMessage("File some file not found!");
 		new FileReaderNio("some file").readFile();
 	}
 
 	@Test
-	public void shouldThrowEmptyFileException() throws FileReadExpection {
+	public void shouldThrowEmptyFileException() throws BowlingException {
 		exceptionRule.expect(FileReadExpection.class);
 		exceptionRule.expectMessage("Empty file!");
 		new FileReaderNio("sample_cases/empty.txt").readFile();
