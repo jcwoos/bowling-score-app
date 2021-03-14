@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
 import br.jcwoos.rollparser.DefaultRollParser;
 import br.jcwoos.rollparser.RollParserException;
 

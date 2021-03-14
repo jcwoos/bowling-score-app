@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.jcwoos.constants.Score;
-import br.jcwoos.filereaders.FileReadExpection;
-import br.jcwoos.filereaders.FileReaderNio;
+import br.jcwoos.filereader.FileReadExpection;
+import br.jcwoos.filereader.FileReaderNio;
 import br.jcwoos.model.Roll;
 
 public class DefaultRollParser implements RollParser {

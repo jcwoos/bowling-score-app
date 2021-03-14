@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 
 import org.junit.Test;
 
-import br.jcwoos.filereaders.FileReaderNio;
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
+import br.jcwoos.filereader.FileReaderNio;
 import br.jcwoos.model.BowlingMatch;
 import br.jcwoos.printer.BowlingMatchResultsPrinterStandardOut;
 import br.jcwoos.rollparser.DefaultRollParser;

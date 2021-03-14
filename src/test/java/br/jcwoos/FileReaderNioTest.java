@@ -4,9 +4,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import br.jcwoos.filereaders.FileReadExpection;
-import br.jcwoos.filereaders.FileReaderNio;
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
+import br.jcwoos.filereader.FileReadExpection;
+import br.jcwoos.filereader.FileReaderNio;
 
 public class FileReaderNioTest {
 

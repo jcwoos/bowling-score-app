@@ -7,7 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
 import br.jcwoos.model.BowlingMatch;
 import br.jcwoos.model.InvalidScoreException;
 import br.jcwoos.model.Roll;

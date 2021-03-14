@@ -1,6 +1,6 @@
-package br.jcwoos.filereaders;
+package br.jcwoos.filereader;
 
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
 
 /**
  * Custom exceptions allow us to be more specific when an error occours

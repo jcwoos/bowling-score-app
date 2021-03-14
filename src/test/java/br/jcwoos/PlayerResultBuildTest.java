@@ -9,7 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
 import br.jcwoos.model.PlayerResult;
 import br.jcwoos.model.Roll;
 import br.jcwoos.model.WrongNumberOfRollsException;

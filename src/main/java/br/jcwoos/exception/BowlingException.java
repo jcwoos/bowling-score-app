@@ -1,4 +1,4 @@
-package br.jcwoos.filereaders.exception;
+package br.jcwoos.exception;
 
 /**
  * Custom exceptions allow us to be more specific when an error occours

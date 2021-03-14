@@ -9,5 +9,4 @@ public interface RollParser {
 	List<Roll> parseLines() throws RollParserException;
 
 	Roll parseLine(String string) throws RollParserException;
-
 }

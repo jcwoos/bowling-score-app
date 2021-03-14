@@ -1,7 +1,7 @@
 package br.jcwoos;
 
-import br.jcwoos.filereaders.FileReaderNio;
-import br.jcwoos.filereaders.exception.BowlingException;
+import br.jcwoos.exception.BowlingException;
+import br.jcwoos.filereader.FileReaderNio;
 import br.jcwoos.model.BowlingMatch;
 import br.jcwoos.printer.BowlingMatchResultsPrinter;
 import br.jcwoos.printer.BowlingMatchResultsPrinterStandardOut;
