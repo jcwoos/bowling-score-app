@@ -28,7 +28,7 @@ public class Frame {
 		return frameNumber;
 	}
 
-	public int getRowsCount() {
+	public int getRollsCount() {
 		return rolls == null ? 0 : rolls.size();
 	}
 
